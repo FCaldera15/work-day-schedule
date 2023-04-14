@@ -12,50 +12,26 @@ let threeText = document.querySelector("#hour-15");
 let fourText = document.querySelector("#hour-16");
 let fiveText = document.querySelector("#hour-17");
 
-let saveButton = document.querySelector(".saveBtn");
 
-saveButton.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    nineVal = document.getElementById("hour-9").value;
-    localStorage.setItem("hour09", nineVal);
-
-    tenVal = document.getElementById("hour-10").value;
-    localStorage.setItem("hour10", tenVal);
-
-    elevenVal = document.getElementById("hour-11").value;
-    localStorage.setItem("hour11", elevenVal);
-
-    twelveVal = document.getElementById("hour-12").value;
-    localStorage.setItem("hour12", twelveVal);
-
-    oneVal = document.getElementById("hour-13").value;
-    localStorage.setItem("hour13", oneVal);
-
-    twoVal = document.getElementById("hour-14").value;
-    localStorage.setItem("hour14", twoVal);
-
-    threeVal = document.getElementById("hour-15").value;
-    localStorage.setItem("hour15", threeVal);
-
-    fourVal = document.getElementById("hour-16").value;
-    localStorage.setItem("hour16", fourVal);
-
-    fiveVal = document.getElementById("hour-17").value;
-    localStorage.setItem("hour17", fiveVal);
-});
+$(".btn").click(function () {
+    console.log(this)
+    let textArea = $(this).siblings("textarea").val()
+    console.log(textArea)
+    let rowTime = $(this).attr("data-time")
+    localStorage.setItem(rowTime, textArea)
+})
 
 
 function renderStorage() {
-    nineText.textContent = localStorage.getItem("hour09");
-    tenText.textContent = localStorage.getItem("hour10");
-    elevenText.textContent = localStorage.getItem("hour11");
-    twelveText.textContent = localStorage.getItem("hour12");
-    oneText.textContent = localStorage.getItem("hour13");
-    twoText.textContent = localStorage.getItem("hour14");
-    threeText.textContent = localStorage.getItem("hour15");
-    fourText.textContent = localStorage.getItem("hour16");
-    fiveText.textContent = localStorage.getItem("hour17");
+    nineText.textContent = localStorage.getItem("9");
+    tenText.textContent = localStorage.getItem("10");
+    elevenText.textContent = localStorage.getItem("11");
+    twelveText.textContent = localStorage.getItem("12");
+    oneText.textContent = localStorage.getItem("13");
+    twoText.textContent = localStorage.getItem("14");
+    threeText.textContent = localStorage.getItem("15");
+    fourText.textContent = localStorage.getItem("16");
+    fiveText.textContent = localStorage.getItem("17");
 
 }
 
@@ -65,17 +41,17 @@ renderStorage()
 let currentHour = dayjs().hour()
 
 for (let i = 0; i < timeBlock.length; i++) {
-    if (timeBlock[i].dataset.time === currentHour) {
+    if (parseInt(timeBlock[i].dataset.time) === currentHour) {
         timeBlock[i].classList.remove("past");
         timeBlock[i].classList.remove("future");
         timeBlock[i].classList.add("present");
     };
-    if (timeBlock[i].dataset.time > currentHour) {
+    if (parseInt(timeBlock[i].dataset.time) > currentHour) {
         timeBlock[i].classList.remove("past");
         timeBlock[i].classList.remove("present");
         timeBlock[i].classList.add("future");
     };
-    if (timeBlock[i].dataset.time < currentHour) {
+    if (parseInt(timeBlock[i].dataset.time) < currentHour) {
         timeBlock[i].classList.remove("present");
         timeBlock[i].classList.remove("future");
         timeBlock[i].classList.add("past");
