@@ -1,3 +1,4 @@
+// Creating new elements according to html elements 
 let currentDay = document.querySelector("#currentDay")
 let timeBlock = document.querySelectorAll(".time-block")
 currentDay.textContent = dayjs().format('MMM DD, YYYY')
@@ -12,7 +13,7 @@ let threeText = document.querySelector("#hour-15");
 let fourText = document.querySelector("#hour-16");
 let fiveText = document.querySelector("#hour-17");
 
-
+// save button that saves the text inside textarea into local storage 
 $(".btn").click(function () {
     console.log(this)
     let textArea = $(this).siblings("textarea").val()
@@ -21,7 +22,7 @@ $(".btn").click(function () {
     localStorage.setItem(rowTime, textArea)
 })
 
-
+// text inside textarea to either stay or input new text in.
 function renderStorage() {
     nineText.textContent = localStorage.getItem("9");
     tenText.textContent = localStorage.getItem("10");
@@ -37,7 +38,7 @@ function renderStorage() {
 
 renderStorage()
 
-// 
+// changes the textarea color according to part present or future.
 let currentHour = dayjs().hour()
 
 for (let i = 0; i < timeBlock.length; i++) {
