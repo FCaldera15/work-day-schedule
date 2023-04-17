@@ -18,9 +18,9 @@ This application enables users to use this page as a daily planner and save text
 
 ## Features
 
-Changes according to the current day.
-textarea changes colors depending on that time of the day it is.
-Saves the input value text if clicking on save button, and will not save if the save button is not clicked.
+Changes according to the current day,
+textarea changes colors depending on that time of the day it is, and
+saves the input value text if clicking on save button, and will not save if the save button is not clicked.
 
 
 ## License 
