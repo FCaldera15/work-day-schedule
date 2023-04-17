@@ -37,7 +37,7 @@ function renderStorage() {
 
 renderStorage()
 
-
+// 
 let currentHour = dayjs().hour()
 
 for (let i = 0; i < timeBlock.length; i++) {
